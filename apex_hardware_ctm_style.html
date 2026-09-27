@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Apex Hardware & Building Materials | Botswana</title>
+<meta name="description" content="Apex Hardware & Building Materials — shop building materials, roofing, plumbing, paint, steel, doors and hardware in Botswana.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+:root{
+ --orange:#f28c18;--orange2:#d86f00;--navy:#17202a;--ink:#20252b;--muted:#68717b;
+ --line:#e5e7eb;--soft:#f5f6f7;--white:#fff;--green:#20a95a;--max:1280px;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Work Sans",Arial,sans-serif;color:var(--ink);background:#fff}
+a{text-decoration:none;color:inherit}
+button,input,select{font:inherit}
+.topbar{background:var(--navy);color:#fff;font-size:13px}
+.topbar .inner{max-width:var(--max);margin:auto;padding:9px 20px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.topbar a{color:#fff;font-weight:700}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.head{max-width:var(--max);margin:auto;padding:16px 20px;display:grid;grid-template-columns:220px 1fr auto;align-items:center;gap:25px}
+.logo{font-family:Oswald,sans-serif;font-weight:700;letter-spacing:.02em;line-height:.9;color:var(--navy)}
+.logo strong{font-size:36px;display:block}.logo span{font-size:16px;letter-spacing:.12em;color:var(--orange)}
+.search{display:flex;border:2px solid var(--navy);height:46px}
+.search input{border:0;outline:0;padding:0 14px;flex:1;min-width:0}
+.search button{border:0;background:var(--orange);font-weight:700;padding:0 20px;cursor:pointer}
+.head-actions{display:flex;align-items:center;gap:10px}
+.icon-btn,.quote-btn{border:0;cursor:pointer;padding:12px 15px;border-radius:4px;font-weight:700}
+.icon-btn{background:#f0f2f4}.quote-btn{background:var(--orange);color:#fff}
+nav{border-top:1px solid #f0f0f0}
+.nav-inner{max-width:var(--max);margin:auto;padding:0 20px;display:flex;align-items:center;gap:0;overflow:auto}
+.nav-inner a,.nav-inner button{white-space:nowrap;padding:14px 16px;border:0;background:none;font-weight:700;cursor:pointer}
+.nav-inner a:hover,.nav-inner button:hover{color:var(--orange2)}
+.hero{background:linear-gradient(100deg,#17202a 0%,#263746 55%,#3c4d5a 100%);color:#fff}
+.hero-inner{max-width:var(--max);margin:auto;min-height:390px;padding:55px 20px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:40px}
+.hero h1{font-family:Oswald,sans-serif;font-size:clamp(44px,6vw,76px);line-height:.95;margin:0 0 18px;text-transform:uppercase}
+.hero h1 span{color:var(--orange)}
+.hero p{font-size:18px;line-height:1.6;color:#e7eaed;max-width:650px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+.primary,.secondary{padding:13px 20px;border-radius:4px;border:0;font-weight:700;cursor:pointer}
+.primary{background:var(--orange);color:#fff}.secondary{background:#fff;color:var(--navy)}
+.hero-art{min-height:260px;display:flex;align-items:center;justify-content:center;position:relative}
+.hero-box{width:280px;height:210px;border:2px solid #83909b;transform:perspective(700px) rotateY(-18deg) rotateX(7deg);background:linear-gradient(145deg,#f6f7f8,#aeb8c1);box-shadow:35px 35px 0 rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center;color:var(--navy);font-family:Oswald;font-size:28px;text-align:center}
+.section{max-width:var(--max);margin:auto;padding:45px 20px}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:22px}
+.kicker{color:var(--orange2);font-weight:700;text-transform:uppercase;font-size:13px;letter-spacing:.1em}
+h2{font-family:Oswald,sans-serif;font-size:34px;text-transform:uppercase;margin:5px 0}
+.section-head p{color:var(--muted);margin:0}
+.category-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.cat{border:1px solid var(--line);background:#fff;min-height:145px;padding:20px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:.18s}
+.cat:hover{transform:translateY(-3px);border-color:#cfd4d9;box-shadow:0 8px 22px #0000000d}
+.cat-icon{font-size:34px}.cat strong{font-family:Oswald;font-size:18px;text-transform:uppercase}.cat small{color:var(--muted)}
+.shop-layout{display:grid;grid-template-columns:245px 1fr;gap:28px}
+.filters{border:1px solid var(--line);align-self:start;position:sticky;top:150px}
+.filter-head{padding:17px;border-bottom:1px solid var(--line);font-family:Oswald;font-size:20px;text-transform:uppercase}
+.filter-group{padding:16px;border-bottom:1px solid var(--line)}
+.filter-group label{display:block;margin:9px 0;color:#4c555e;font-size:14px;cursor:pointer}
+.filter-group input{margin-right:8px}
+.shop-toolbar{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:18px;flex-wrap:wrap}
+.result-count{color:var(--muted);font-size:14px}
+.sort{padding:10px;border:1px solid var(--line);background:#fff}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.product{border:1px solid var(--line);background:#fff;position:relative;display:flex;flex-direction:column;min-width:0}
+.product:hover{box-shadow:0 10px 25px #0000000d}
+.product-image{height:210px;background:linear-gradient(135deg,#f5f6f7,#e6e9ec);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.product-image img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;left:10px;top:10px;background:var(--orange);color:#fff;padding:5px 8px;font-size:11px;font-weight:700;text-transform:uppercase}
+.product-body{padding:15px;display:flex;flex-direction:column;flex:1}
+.brand{font-size:11px;text-transform:uppercase;color:var(--muted);font-weight:700;letter-spacing:.06em}
+.product h3{font-family:Oswald;font-size:21px;line-height:1.05;margin:7px 0}
+.desc{color:var(--muted);font-size:13px;line-height:1.5;min-height:40px}
+.price{font-size:19px;font-weight:700;margin:12px 0;color:var(--navy)}
+.stock{font-size:12px;margin-bottom:12px}.in{color:var(--green)}.low{color:#b45309}
+.product-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:auto}
+.add,.view3d{padding:11px 8px;border:0;font-weight:700;cursor:pointer}
+.add{background:var(--orange);color:#fff}.view3d{background:#eef1f3;color:var(--navy)}
+.project-strip{background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.project{background:#fff;padding:25px;border:1px solid var(--line)}
+.project strong{font-family:Oswald;font-size:22px}.project p{color:var(--muted);line-height:1.5}
+.quote-banner{background:var(--orange);color:#fff}
+.quote-inner{max-width:var(--max);margin:auto;padding:36px 20px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.quote-inner h2{margin:0}.quote-inner p{margin:5px 0 0}
+.footer{background:var(--navy);color:#fff}
+.footer-grid{max-width:var(--max);margin:auto;padding:40px 20px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:35px}
+.footer h3{font-family:Oswald;text-transform:uppercase;margin-top:0}.footer p,.footer li{color:#c9d0d6;line-height:1.7;font-size:14px}.footer ul{padding:0;list-style:none}.footer li{margin:6px 0}
+.footer-bottom{border-top:1px solid #3a4650;text-align:center;padding:15px;color:#b8c0c8;font-size:12px}
+.whatsapp-float{position:fixed;right:20px;bottom:20px;background:#25d366;color:#fff;border-radius:50px;padding:14px 18px;font-weight:700;z-index:60;box-shadow:0 8px 25px #0003}
+.modal{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;z-index:100;padding:18px}
+.modal.open{display:flex}.modal-box{width:min(1050px,96vw);height:min(760px,92vh);background:#fff;display:flex;flex-direction:column;border-radius:6px;overflow:hidden}
+.modal-head{padding:14px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.modal-head h3{font-family:Oswald;font-size:24px;margin:0}.close{border:0;background:#eee;border-radius:50%;width:40px;height:40px;cursor:pointer;font-size:24px}
+.stage{flex:1;background:#eef1f3;min-height:350px}.stage canvas{display:block;width:100%;height:100%}
+.modal-help{padding:10px 15px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+.quote-modal{max-width:560px;height:auto;max-height:90vh;overflow:auto;padding-bottom:18px}
+.quote-modal form{padding:20px}.field{margin-bottom:14px}.field label{display:block;font-weight:700;font-size:13px;margin-bottom:6px}.field input{width:100%;padding:12px;border:1px solid #ccd2d7}
+.quote-items{background:#f7f8f9;padding:12px;margin-bottom:15px;max-height:260px;overflow:auto}
+.quote-line{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid #ddd;padding:8px 0;font-size:13px}
+.quote-total{font-size:20px;font-weight:700;text-align:right;margin:14px 0}
+.whatsapp-send{width:100%;padding:14px;border:0;background:#25d366;color:#fff;font-weight:700;cursor:pointer}
+.empty{grid-column:1/-1;padding:45px;text-align:center;border:1px dashed #ccc;color:var(--muted)}
+@media(max-width:1000px){.category-grid{grid-template-columns:repeat(3,1fr)}.head{grid-template-columns:180px 1fr}.head-actions{display:none}.hero-inner{grid-template-columns:1fr}.hero-art{display:none}.shop-layout{grid-template-columns:1fr}.filters{position:static}.products{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){.head{grid-template-columns:1fr;padding:12px 15px}.logo{display:flex;gap:8px;align-items:baseline}.logo strong{font-size:30px}.logo span{font-size:12px}.nav-inner{padding:0 8px}.hero-inner{padding:40px 18px}.section{padding:35px 15px}.category-grid{grid-template-columns:repeat(2,1fr)}.products{grid-template-columns:1fr}.project-grid{grid-template-columns:1fr}.quote-inner{display:block}.quote-inner .primary{margin-top:15px}.footer-grid{grid-template-columns:1fr}.whatsapp-float{right:12px;bottom:12px}.product-image{height:230px}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="inner">
+    <span>🇧🇼 Apex Hardware & Building Materials — Botswana</span>
+    <span>Order / enquiries: <a href="https://wa.me/2672412183" target="_blank">WhatsApp +267 241 2183</a></span>
+  </div>
+</div>
+
+<header>
+  <div class="head">
+    <a class="logo" href="#"><strong>APEX</strong><span>HARDWARE</span></a>
+    <div class="search">
+      <input id="searchInput" type="search" placeholder="What are you looking for? e.g. cement, IBR, PVC pipe..." aria-label="Search products">
+      <button type="button" onclick="runSearch()">SEARCH</button>
+    </div>
+    <div class="head-actions">
+      <button class="icon-btn" type="button" onclick="scrollToShop()">🛒 <span id="quoteCount">0</span></button>
+      <button class="quote-btn" type="button" onclick="openQuote()">GET A QUOTE</button>
+    </div>
+  </div>
+  <nav>
+    <div class="nav-inner">
+      <a href="#home">HOME</a>
+      <button onclick="scrollToCategories()">SHOP BY CATEGORY</button>
+      <button onclick="filterCategory('Cement & Building Materials')">BUILDING</button>
+      <button onclick="filterCategory('Roofing & Steel')">ROOFING & STEEL</button>
+      <button onclick="filterCategory('Plumbing')">PLUMBING</button>
+      <button onclick="filterCategory('Paint')">PAINT</button>
+      <button onclick="filterCategory('Doors')">DOORS</button>
+      <a href="https://www.facebook.com/apexhardware.bw" target="_blank">FACEBOOK</a>
+    </div>
+  </nav>
+</header>
+
+<main id="home">
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="kicker">BUILD • REPAIR • RENOVATE</div>
+      <h1>Everything you need to <span>build it right.</span></h1>
+      <p>Shop Apex building materials, hardware and construction essentials. Find products, build your quotation and send it directly to Apex on WhatsApp.</p>
+      <div class="hero-actions">
+        <button class="primary" onclick="scrollToShop()">SHOP PRODUCTS</button>
+        <button class="secondary" onclick="openQuote()">REQUEST A QUOTE</button>
+      </div>
+    </div>
+    <div class="hero-art"><div class="hero-box">APEX<br>BUILDING<br>MATERIALS</div></div>
+  </div>
+</section>
+
+<section class="section" id="categories">
+  <div class="section-head">
+    <div><div class="kicker">SHOP YOUR WAY</div><h2>Shop by category</h2></div>
+    <p>Trade-quality stock for builders, contractors and DIY projects.</p>
+  </div>
+  <div class="category-grid">
+    <div class="cat" onclick="filterCategory('Cement & Building Materials')"><div class="cat-icon">🧱</div><strong>Building</strong><small>Cement & bricks</small></div>
+    <div class="cat" onclick="filterCategory('Roofing & Steel')"><div class="cat-icon">🏠</div><strong>Roofing & Steel</strong><small>IBR & reinforcement</small></div>
+    <div class="cat" onclick="filterCategory('Plumbing')"><div class="cat-icon">🚰</div><strong>Plumbing</strong><small>PVC & CPVC</small></div>
+    <div class="cat" onclick="filterCategory('Paint')"><div class="cat-icon">🎨</div><strong>Paint</strong><small>Dulux finishes</small></div>
+    <div class="cat" onclick="filterCategory('Doors')"><div class="cat-icon">🚪</div><strong>Doors</strong><small>Pine doors & frames</small></div>
+    <div class="cat" onclick="filterCategory('Hardware')"><div class="cat-icon">🔧</div><strong>Hardware</strong><small>Tools & accessories</small></div>
+  </div>
+</section>
+
+<section class="section" id="shop">
+  <div class="section-head">
+    <div><div class="kicker">APEX PRODUCT RANGE</div><h2>Shop products</h2></div>
+    <p>View products, compare options and add items to your quotation.</p>
+  </div>
+  <div class="shop-layout">
+    <aside class="filters">
+      <div class="filter-head">Filter products</div>
+      <div class="filter-group">
+        <strong>Department</strong>
+        <label><input type="checkbox" value="Cement & Building Materials" onchange="applyFilters()"> Building Materials</label>
+        <label><input type="checkbox" value="Roofing & Steel" onchange="applyFilters()"> Roofing & Steel</label>
+        <label><input type="checkbox" value="Plumbing" onchange="applyFilters()"> Plumbing</label>
+        <label><input type="checkbox" value="Paint" onchange="applyFilters()"> Paint</label>
+        <label><input type="checkbox" value="Doors" onchange="applyFilters()"> Doors & Frames</label>
+        <label><input type="checkbox" value="Hardware" onchange="applyFilters()"> Hardware</label>
+      </div>
+      <div class="filter-group">
+        <strong>Brand</strong>
+        <label><input type="checkbox" value="AfriSam" onchange="applyFilters()"> AfriSam</label>
+        <label><input type="checkbox" value="Flo-Tek" onchange="applyFilters()"> Flo-Tek</label>
+        <label><input type="checkbox" value="Dulux" onchange="applyFilters()"> Dulux</label>
+      </div>
+      <div class="filter-group">
+        <button class="secondary" style="width:100%;border:1px solid #ddd" onclick="clearFilters()">CLEAR FILTERS</button>
+      </div>
+    </aside>
+    <div>
+      <div class="shop-toolbar">
+        <span class="result-count" id="resultCount"></span>
+        <select class="sort" id="sortSelect" onchange="applyFilters()">
+          <option value="popular">Best selling</option>
+          <option value="az">Name A–Z</option>
+          <option value="za">Name Z–A</option>
+        </select>
+      </div>
+      <div class="products" id="products"></div>
+    </div>
+  </div>
+</section>
+
+<section class="project-strip">
+  <div class="section">
+    <div class="section-head"><div><div class="kicker">BUILD WITH A PLAN</div><h2>Make your project easier</h2></div></div>
+    <div class="project-grid">
+      <div class="project"><strong>📋 Get a quotation</strong><p>Select your materials, enter your details and send the complete quotation to Apex on WhatsApp.</p><button class="primary" onclick="openQuote()">START QUOTE</button></div>
+      <div class="project"><strong>🧊 View products in 3D</strong><p>Open selected products in an interactive 3D viewer and rotate them before adding them to your quote.</p><button class="secondary" onclick="scrollToShop()">VIEW PRODUCTS</button></div>
+      <div class="project"><strong>📊 Apex product insights</strong><p>The website tracks searches and quotation requests so Apex can understand which products customers are looking for most.</p><button class="secondary" onclick="scrollToShop()">SHOP NOW</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="quote-banner">
+  <div class="quote-inner">
+    <div><h2>Need materials for a whole project?</h2><p>Send your list to Apex and request a quotation.</p></div>
+    <button class="secondary" onclick="openQuote()">GET YOUR QUOTE</button>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div><h3>Apex Hardware & Building Materials</h3><p>Your Botswana source for building materials, hardware and construction products.</p><p><a href="https://www.facebook.com/apexhardware.bw" target="_blank">Follow Apex on Facebook →</a></p></div>
+    <div><h3>Shop</h3><ul><li>Building Materials</li><li>Roofing & Steel</li><li>Plumbing</li><li>Paint</li><li>Doors & Frames</li></ul></div>
+    <div><h3>For Customers</h3><ul><li>Quotes & Orders</li><li>WhatsApp Enquiries</li><li>Product Search</li><li>3D Product View</li></ul></div>
+    <div><h3>Contact</h3><ul><li>Botswana</li><li><a href="https://wa.me/2672412183" target="_blank">+267 241 2183 WhatsApp</a></li><li>Facebook: @apexhardware.bw</li></ul></div>
+  </div>
+  <div class="footer-bottom">© 2026 Apex Hardware & Building Materials. All rights reserved.</div>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/2672412183" target="_blank">💬 WhatsApp Apex</a>
+
+<div class="modal" id="viewerModal">
+  <div class="modal-box">
+    <div class="modal-head"><h3 id="viewerTitle">3D Product View</h3><button class="close" onclick="close3D()">×</button></div>
+    <div class="stage"><canvas id="threeCanvas"></canvas></div>
+    <div class="modal-help">Drag to rotate • Scroll to zoom • Interactive 3D preview</div>
+  </div>
+</div>
+
+<div class="modal" id="quoteModal">
+  <div class="modal-box quote-modal">
+    <div class="modal-head"><h3>YOUR APEX QUOTATION</h3><button class="close" onclick="closeQuote()">×</button></div>
+    <form onsubmit="sendQuote(event)">
+      <div class="quote-items" id="quoteItems"></div>
+      <div class="quote-total">Estimated total: <span id="quoteTotal">PRICE ON REQUEST</span></div>
+      <div class="field"><label>Customer name</label><input id="customerName" required placeholder="Your name"></div>
+      <div class="field"><label>WhatsApp / phone number</label><input id="customerPhone" required placeholder="+267 ..."></div>
+      <div class="field"><label>Project / delivery notes</label><input id="customerNotes" placeholder="e.g. house build, Gaborone delivery"></div>
+      <button class="whatsapp-send" type="submit">📲 PREPARE QUOTATION ON WHATSAPP</button>
+    </form>
+  </div>
+</div>
+
+<script>
+const products=[
+{id:1,name:"AfriSam Cement 50kg",cat:"Cement & Building Materials",brand:"AfriSam",price:null,stock:120,unit:"bag",img:"https://images.unsplash.com/photo-1590479773265-7464e5d48118?auto=format&fit=crop&w=700&q=80",desc:"AfriSam cement for concrete, mortar, plastering and general building work."},
+{id:2,name:"Stock Brick 14",cat:"Cement & Building Materials",brand:"Apex",price:null,stock:850,unit:"brick",img:"https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=700&q=80",desc:"Stock brick 14 for general wall construction and building projects."},
+{id:3,name:"IBR Roofing Sheet 3.6m x 0.4mm",cat:"Roofing & Steel",brand:"Apex",price:null,stock:45,unit:"sheet",img:"https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?auto=format&fit=crop&w=700&q=80",desc:"IBR roofing sheet, 3.6m long and 0.4mm thick."},
+{id:4,name:"Y12 Reinforcing Bar 12mm x 6m",cat:"Roofing & Steel",brand:"Apex",price:null,stock:75,unit:"bar",img:"https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=700&q=80",desc:"Y12 reinforcement bar, 12mm diameter and 6m long."},
+{id:5,name:"Dulux Capitol White 20L",cat:"Paint",brand:"Dulux",price:null,stock:18,unit:"bucket",img:"https://images.unsplash.com/photo-1562259949-e8e768f6f572?auto=format&fit=crop&w=700&q=80",desc:"Dulux Capitol White 20L wall paint for decorative finishing."},
+{id:6,name:"Flo-Tek PVC Pipe 110mm",cat:"Plumbing",brand:"Flo-Tek",price:null,stock:42,unit:"length",img:"https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=700&q=80",desc:"Flo-Tek PVC pipe, 110mm."},
+{id:7,name:"Flo-Tek PVC Pipe 40mm",cat:"Plumbing",brand:"Flo-Tek",price:null,stock:50,unit:"length",img:"https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=700&q=80",desc:"Flo-Tek PVC pipe, 40mm."},
+{id:8,name:"Flo-Tek PVC Pipe 50mm",cat:"Plumbing",brand:"Flo-Tek",price:null,stock:36,unit:"length",img:"https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=700&q=80",desc:"Flo-Tek PVC pipe, 50mm."},
+{id:9,name:"Flo-Tek CPVC Pipe 16mm",cat:"Plumbing",brand:"Flo-Tek",price:null,stock:60,unit:"length",img:"https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=700&q=80",desc:"Flo-Tek CPVC pipe, 16mm."},
+{id:10,name:"Flo-Tek CPVC Pipe 20mm",cat:"Plumbing",brand:"Flo-Tek",price:null,stock:50,unit:"length",img:"https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=700&q=80",desc:"Flo-Tek CPVC pipe, 20mm."},
+{id:11,name:"Flo-Tek CPVC Elbow 16mm",cat:"Plumbing",brand:"Flo-Tek",price:null,stock:100,unit:"each",img:"https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=700&q=80",desc:"Flo-Tek 16mm CPVC elbow fitting."},
+{id:12,name:"Pine Door",cat:"Doors",brand:"Apex",price:null,stock:20,unit:"door",img:"https://images.unsplash.com/photo-1558997519-83ea9252edf8?auto=format&fit=crop&w=700&q=80",desc:"Pine timber door for residential and general building applications."},
+{id:13,name:"Door Frame 115 x 0.8 Left",cat:"Doors",brand:"Apex",price:null,stock:20,unit:"frame",img:"https://images.unsplash.com/photo-1541127508-6f7c2b4e0d75?auto=format&fit=crop&w=700&q=80",desc:"Left-hand door frame, 115 x 0.8."},
+{id:14,name:"Door Frame 115 x 0.8 Right",cat:"Doors",brand:"Apex",price:null,stock:20,unit:"frame",img:"https://images.unsplash.com/photo-1541127508-6f7c2b4e0d75?auto=format&fit=crop&w=700&q=80",desc:"Right-hand door frame, 115 x 0.8."},
+{id:15,name:"Claw Hammer",cat:"Hardware",brand:"Apex",price:null,stock:25,unit:"each",img:"https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=700&q=80",desc:"General-purpose claw hammer for construction work."},
+{id:16,name:"Box of Roofing Screws",cat:"Hardware",brand:"Apex",price:null,stock:40,unit:"box",img:"https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=700&q=80",desc:"Roofing screws for compatible roofing installations."}
+];
+
+let quote=[];
+let searchTimer;
+const analytics=JSON.parse(localStorage.getItem("apexAnalyticsV2")||'{"searches":{},"requested":{},"orders":0,"items":0}');
+function saveAnalytics(){localStorage.setItem("apexAnalyticsV2",JSON.stringify(analytics))}
+function trackSearch(q){
+ q=q.trim().toLowerCase(); if(q.length<2)return;
+ analytics.searches[q]=(analytics.searches[q]||0)+1;
+ saveAnalytics();
+}
+function runSearch(){const q=document.getElementById("searchInput").value;trackSearch(q);applyFilters()}
+document.getElementById("searchInput").addEventListener("input",()=>{clearTimeout(searchTimer);searchTimer=setTimeout(runSearch,450)});
+
+function renderProducts(list){
+ const box=document.getElementById("products");
+ document.getElementById("resultCount").textContent=list.length+" products";
+ if(!list.length){box.innerHTML='<div class="empty">No products matched your search or filters.</div>';return}
+ box.innerHTML=list.map(p=>`
+ <article class="product">
+   <div class="product-image"><span class="badge">${p.brand}</span><img src="${p.img}" alt="${p.name}" loading="lazy"></div>
+   <div class="product-body">
+    <div class="brand">${p.brand} · ${p.cat}</div>
+    <h3>${p.name}</h3>
+    <div class="desc">${p.desc}</div>
+    <div class="price">${p.price==null?"PRICE ON REQUEST":"BWP "+p.price.toFixed(2)}</div>
+    <div class="stock ${p.stock<20?"low":"in"}">${p.stock<20?"Low stock":"In stock"} · ${p.stock} ${p.unit}${p.stock===1?"":"s"}</div>
+    <div class="product-actions">
+      <button class="add" onclick="addToQuote(${p.id})">ADD TO QUOTE</button>
+      <button class="view3d" onclick="open3D(${p.id})">🧊 VIEW 3D</button>
+    </div>
+   </div>
+ </article>`).join("");
+}
+
+function applyFilters(){
+ let list=[...products];
+ const q=document.getElementById("searchInput").value.trim().toLowerCase();
+ if(q)list=list.filter(p=>(p.name+" "+p.brand+" "+p.cat+" "+p.desc).toLowerCase().includes(q));
+ const cats=[...document.querySelectorAll('.filter-group input[type="checkbox"]')].filter(x=>x.checked);
+ const catVals=cats.filter(x=>["Cement & Building Materials","Roofing & Steel","Plumbing","Paint","Doors","Hardware"].includes(x.value)).map(x=>x.value);
+ const brands=cats.filter(x=>["AfriSam","Flo-Tek","Dulux"].includes(x.value)).map(x=>x.value);
+ if(catVals.length)list=list.filter(p=>catVals.includes(p.cat));
+ if(brands.length)list=list.filter(p=>brands.includes(p.brand));
+ const sort=document.getElementById("sortSelect").value;
+ if(sort==="az")list.sort((a,b)=>a.name.localeCompare(b.name));
+ if(sort==="za")list.sort((a,b)=>b.name.localeCompare(a.name));
+ renderProducts(list);
+}
+function filterCategory(cat){
+ document.querySelectorAll('.filter-group input[type="checkbox"]').forEach(x=>x.checked=false);
+ if(cat==="Cement & Building Materials"||cat==="Roofing & Steel"||cat==="Plumbing"||cat==="Paint"||cat==="Doors"||cat==="Hardware"){
+   const el=[...document.querySelectorAll('.filter-group input')].find(x=>x.value===cat);if(el)el.checked=true;
+ }
+ document.getElementById("searchInput").value="";
+ applyFilters();scrollToShop();
+}
+function clearFilters(){document.querySelectorAll('.filter-group input').forEach(x=>x.checked=false);document.getElementById("searchInput").value="";applyFilters()}
+function scrollToShop(){document.getElementById("shop").scrollIntoView({behavior:"smooth"})}
+function scrollToCategories(){document.getElementById("categories").scrollIntoView({behavior:"smooth"})}
+
+function addToQuote(id){
+ const p=products.find(x=>x.id===id);if(!p)return;
+ const item=quote.find(x=>x.id===id);
+ if(item)item.qty++;
+ else quote.push({id:p.id,name:p.name,qty:1,unit:p.unit,price:p.price});
+ document.getElementById("quoteCount").textContent=quote.reduce((a,x)=>a+x.qty,0);
+}
+
+function openQuote(){
+ const box=document.getElementById("quoteItems");
+ if(!quote.length)box.innerHTML='<div style="color:#68717b">Your quotation is empty. Add products first.</div>';
+ else box.innerHTML=quote.map(x=>`<div class="quote-line"><span>${x.name}<br><small>Qty: ${x.qty} ${x.unit}</small></span><button onclick="removeQuote(${x.id})">Remove</button></div>`).join("");
+ const priced=quote.every(x=>x.price!=null);
+ const total=quote.reduce((a,x)=>a+(x.price==null?0:x.price*x.qty),0);
+ document.getElementById("quoteTotal").textContent=priced&&quote.length?"BWP "+total.toFixed(2):"PRICE ON REQUEST";
+ document.getElementById("quoteModal").classList.add("open");
+}
+function closeQuote(){document.getElementById("quoteModal").classList.remove("open")}
+function removeQuote(id){quote=quote.filter(x=>x.id!==id);document.getElementById("quoteCount").textContent=quote.reduce((a,x)=>a+x.qty,0);openQuote()}
+
+function sendQuote(e){
+ e.preventDefault();
+ if(!quote.length){alert("Please add at least one product to the quotation.");return}
+ const name=document.getElementById("customerName").value.trim();
+ const phone=document.getElementById("customerPhone").value.trim();
+ const notes=document.getElementById("customerNotes").value.trim();
+ const now=new Date();
+ const qn="APX-"+String(now.getFullYear()).slice(-2)+String(now.getMonth()+1).padStart(2,"0")+String(now.getDate()).padStart(2,"0")+"-"+Math.floor(100+Math.random()*900);
+ const priced=quote.every(x=>x.price!=null);
+ const total=quote.reduce((a,x)=>a+(x.price==null?0:x.price*x.qty),0);
+ let msg=`APEX HARDWARE & BUILDING MATERIALS\nQUOTATION REQUEST\nQuotation No: ${qn}\n\nCustomer: ${name}\nCustomer WhatsApp/Phone: ${phone}\n\nPRODUCTS:\n`;
+ quote.forEach(x=>{msg+=`• ${x.name} — ${x.qty} ${x.unit}${x.price==null?" — PRICE ON REQUEST":" — BWP "+(x.price*x.qty).toFixed(2)}\n`;analytics.requested[x.name]=(analytics.requested[x.name]||0)+x.qty});
+ msg+=`\nEstimated Total: ${priced?"BWP "+total.toFixed(2):"PRICE ON REQUEST"}\n`;
+ if(notes)msg+=`\nProject / delivery notes: ${notes}\n`;
+ msg+=`\nPlease confirm availability, final pricing and delivery/collection details.\nReference: ${qn}`;
+ analytics.orders++;analytics.items+=quote.reduce((a,x)=>a+x.qty,0);saveAnalytics();
+ window.open("https://wa.me/2672412183?text="+encodeURIComponent(msg),"_blank");
+ closeQuote();
+}
+
+let three={scene:null,camera:null,renderer:null,obj:null,raf:null,drag:false,x:0,y:0,rx:.12,ry:.45,dist:5};
+function build3D(p){
+ const g=new THREE.Group();
+ const white=new THREE.MeshStandardMaterial({color:0xf4f4f1,roughness:.7}),blue=new THREE.MeshStandardMaterial({color:0x24548a,roughness:.45}),red=new THREE.MeshStandardMaterial({color:0xa63a28,roughness:.6}),wood=new THREE.MeshStandardMaterial({color:0x9b6a3d,roughness:.75}),dark=new THREE.MeshStandardMaterial({color:0x343a40,metalness:.5,roughness:.3}),grey=new THREE.MeshStandardMaterial({color:0xb8bec4,metalness:.25,roughness:.55});
+ const box=(w,h,d,x=0,y=0,z=0,m=grey)=>{let o=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),m);o.position.set(x,y,z);g.add(o);return o};
+ if(p.cat==="Cement & Building Materials"&&p.name.includes("Cement")){box(2.3,1.2,.75,0,0,0,white);box(1.9,.8,.78,0,.03,.02,blue)}
+ else if(p.name.includes("Brick")){for(let r=0;r<3;r++)for(let c=0;c<4;c++)box(.85,.4,.5,(c-1.5)*.9+(r%2?.45:0),r*.45-.45,0,red)}
+ else if(p.name.includes("IBR")){for(let i=-4;i<=4;i++)box(.27,.09,3.6,i*.3,0,0,blue)}
+ else if(p.name.includes("Reinforcing")){let o=new THREE.Mesh(new THREE.CylinderGeometry(.11,.11,4.4,24),dark);o.rotation.z=Math.PI/2;g.add(o)}
+ else if(p.name.includes("Paint")){let o=new THREE.Mesh(new THREE.CylinderGeometry(.72,.72,1.45,40),white);g.add(o);let b=new THREE.Mesh(new THREE.CylinderGeometry(.73,.73,.6,40),blue);b.position.y=.05;g.add(b)}
+ else if(p.cat==="Plumbing"){let o=new THREE.Mesh(new THREE.CylinderGeometry(.34,.34,3.6,40),p.name.includes("CPVC")?white:blue);o.rotation.z=Math.PI/2;g.add(o);if(p.name.includes("Elbow")){let e=new THREE.Mesh(new THREE.TorusGeometry(.6,.16,16,30,Math.PI/2),white);e.rotation.y=Math.PI/2;e.position.x=.8;g.add(e)}}
+ else if(p.cat==="Doors"){if(p.name.includes("Frame")){box(.18,3,.22,-1,0,0,wood);box(.18,3,.22,1,0,0,wood);box(2.18,.18,.22,0,1.4,0,wood)}else box(2,3.2,.18,0,0,0,wood)}
+ else if(p.cat==="Hardware"){box(1.4,.9,1,0,0,0,dark)}
+ else box(1.7,1.7,1.7,0,0,0,grey);
+ return g;
+}
+function open3D(id){
+ const p=products.find(x=>x.id===id);if(!p)return;
+ document.getElementById("viewerTitle").textContent=p.name+" — 3D View";
+ document.getElementById("viewerModal").classList.add("open");
+ const stage=document.querySelector(".stage"),canvas=document.getElementById("threeCanvas");
+ if(three.raf)cancelAnimationFrame(three.raf);
+ three.scene=new THREE.Scene();three.scene.background=new THREE.Color(0xe9edf0);
+ three.camera=new THREE.PerspectiveCamera(42,stage.clientWidth/stage.clientHeight,.1,100);
+ three.renderer=new THREE.WebGLRenderer({canvas,antialias:true});three.renderer.setPixelRatio(Math.min(devicePixelRatio||1,2));three.renderer.setSize(stage.clientWidth,stage.clientHeight,false);
+ three.scene.add(new THREE.HemisphereLight(0xffffff,0x66717c,1.5));let l=new THREE.DirectionalLight(0xffffff,2);l.position.set(4,6,5);three.scene.add(l);
+ let floor=new THREE.Mesh(new THREE.PlaneGeometry(12,12),new THREE.MeshStandardMaterial({color:0xdfe4e8}));floor.rotation.x=-Math.PI/2;floor.position.y=-1.1;three.scene.add(floor);
+ three.obj=build3D(p);three.scene.add(three.obj);three.rx=.12;three.ry=.45;three.dist=5;
+ function draw(){three.obj.rotation.x=three.rx;three.obj.rotation.y=three.ry;three.camera.position.set(0,1.1,three.dist);three.camera.lookAt(0,0,0);three.renderer.render(three.scene,three.camera);three.raf=requestAnimationFrame(draw)}draw();
+ canvas.onpointerdown=e=>{three.drag=true;three.x=e.clientX;three.y=e.clientY;canvas.setPointerCapture(e.pointerId)};
+ canvas.onpointermove=e=>{if(!three.drag)return;three.ry+=(e.clientX-three.x)*.012;three.rx+=(e.clientY-three.y)*.008;three.x=e.clientX;three.y=e.clientY};
+ canvas.onpointerup=()=>three.drag=false;canvas.onpointercancel=()=>three.drag=false;
+ canvas.onwheel=e=>{e.preventDefault();three.dist=Math.max(2.5,Math.min(9,three.dist+e.deltaY*.003))}
+}
+function close3D(){document.getElementById("viewerModal").classList.remove("open");if(three.raf)cancelAnimationFrame(three.raf)}
+document.getElementById("viewerModal").addEventListener("click",e=>{if(e.target.id==="viewerModal")close3D()});
+document.getElementById("quoteModal").addEventListener("click",e=>{if(e.target.id==="quoteModal")closeQuote()});
+window.addEventListener("resize",()=>{if(three.renderer&&document.getElementById("viewerModal").classList.contains("open")){const s=document.querySelector(".stage");three.camera.aspect=s.clientWidth/s.clientHeight;three.camera.updateProjectionMatrix();three.renderer.setSize(s.clientWidth,s.clientHeight,false)}});
+
+renderProducts(products);
+</script>
+</body>
+</html>
