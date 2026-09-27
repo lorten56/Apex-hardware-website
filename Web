@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Apex Hardware & Building Materials | Botswana</title>
+<meta name="description" content="Apex Hardware & Building Materials — shop building materials, roofing, plumbing, paint, steel, doors and hardware in Botswana.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+:root{
+ --orange:#f28c18;--orange2:#d86f00;--navy:#17202a;--ink:#20252b;--muted:#68717b;
+ --line:#e5e7eb;--soft:#f5f6f7;--white:#fff;--green:#20a95a;--max:1280px;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Work Sans",Arial,sans-serif;color:var(--ink);background:#fff}
+a{text-decoration:none;color:inherit}
+button,input,select{font:inherit}
+.topbar{background:var(--navy);color:#fff;font-size:13px}
+.topbar .inner{max-width:var(--max);margin:auto;padding:9px 20px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.topbar a{color:#fff;font-weight:700}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.head{max-width:var(--max);margin:auto;padding:16px 20px;display:grid;grid-template-columns:220px 1fr auto;align-items:center;gap:25px}
+.logo{font-family:Oswald,sans-serif;font-weight:700;letter-spacing:.02em;line-height:.9;color:var(--navy)}
+.logo strong{font-size:36px;display:block}.logo span{font-size:16px;letter-spacing:.12em;color:var(--orange)}
+.search{display:flex;border:2px solid var(--navy);height:46px}
+.search input{border:0;outline:0;padding:0 14px;flex:1;min-width:0}
+.search button{border:0;background:var(--orange);font-weight:700;padding:0 20px;cursor:pointer}
+.head-actions{display:flex;align-items:center;gap:10px}
+.icon-btn,.quote-btn{border:0;cursor:pointer;padding:12px 15px;border-radius:4px;font-weight:700}
+.icon-btn{background:#f0f2f4}.quote-btn{background:var(--orange);color:#fff}
+nav{border-top:1px solid #f0f0f0}
+.nav-inner{max-width:var(--max);margin:auto;padding:0 20px;display:flex;align-items:center;gap:0;overflow:auto}
+.nav-inner a,.nav-inner button{white-space:nowrap;padding:14px 16px;border:0;background:none;font-weight:700;cursor:pointer}
+.nav-inner a:hover,.nav-inner button:hover{color:var(--orange2)}
+.hero{background:linear-gradient(100deg,#17202a 0%,#263746 55%,#3c4d5a 100%);color:#fff}
+.hero-inner{max-width:var(--max);margin:auto;min-height:390px;padding:55px 20px;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:40px}
+.hero h1{font-family:Oswald,sans-serif;font-size:clamp(44px,6vw,76px);line-height:.95;margin:0 0 18px;text-transform:uppercase}
+.hero h1 span{color:var(--orange)}
+.hero p{font-size:18px;line-height:1.6;color:#e7eaed;max-width:650px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
+.primary,.secondary{padding:13px 20px;border-radius:4px;border:0;font-weight:700;cursor:pointer}
+.primary{background:var(--orange);color:#fff}.secondary{background:#fff;color:var(--navy)}
+.hero-art{min-height:260px;display:flex;align-items:center;justify-content:center;position:relative}
+.hero-box{width:280px;height:210px;border:2px solid #83909b;transform:perspective(700px) rotateY(-18deg) rotateX(7deg);background:linear-gradient(145deg,#f6f7f8,#aeb8c1);box-shadow:35px 35px 0 rgba(0,0,0,.18);display:flex;align-items:center;justify-content:center;color:var(--navy);font-family:Oswald;font-size:28px;text-align:center}
+.section{max-width:var(--max);margin:auto;padding:45px 20px}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:22px}
+.kicker{color:var(--orange2);font-weight:700;text-transform:uppercase;font-size:13px;letter-spacing:.1em}
+h2{font-family:Oswald,sans-serif;font-size:34px;text-transform:uppercase;margin:5px 0}
+.section-head p{color:var(--muted);margin:0}
+.category-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.cat{border:1px solid var(--line);background:#fff;min-height:145px;padding:20px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer;transition:.18s}
+.cat:hover{transform:translateY(-3px);border-color:#cfd4d9;box-shadow:0 8px 22px #0000000d}
+.cat-icon{font-size:34px}.cat strong{font-family:Oswald;font-size:18px;text-transform:uppercase}.cat small{color:var(--muted)}
+.shop-layout{display:grid;grid-template-columns:245px 1fr;gap:28px}
+.filters{border:1px solid var(--line);align-self:start;position:sticky;top:150px}
+.filter-head{padding:17px;border-bottom:1px solid var(--line);font-family:Oswald;font-size:20px;text-transform:uppercase}
+.filter-group{padding:16px;border-bottom:1px solid var(--line)}
+.filter-group label{display:block;margin:9px 0;color:#4c555e;font-size:14px;cursor:pointer}
+.filter-group input{margin-right:8px}
+.shop-toolbar{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:18px;flex-wrap:wrap}
+.result-count{color:var(--muted);font-size:14px}
+.sort{padding:10px;border:1px solid var(--line);background:#fff}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.product{border:1px solid var(--line);background:#fff;position:relative;display:flex;flex-direction:column;min-width:0}
+.product:hover{box-shadow:0 10px 25px #0000000d}
+.product-image{height:210px;background:linear-gradient(135deg,#f5f6f7,#e6e9ec);display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+.product-image img{width:100%;height:100%;object-fit:cover}
+.badge{position:absolute;left:10px;top:10px;background:var(--orange);color:#fff;padding:5px 8px;font-size:11px;font-weight:700;text-transform:uppercase}
+.product-body{padding:15px;display:flex;flex-direction:column;flex:1}
+.brand{font-size:11px;text-transform:uppercase;color:var(--muted);font-weight:700;letter-spacing:.06em}
+.product h3{font-family:Oswald;font-size:21px;line-height:1.05;margin:7px 0}
+.desc{color:var(--muted);font-size:13px;line-height:1.5;min-height:40px}
+.price{font-size:19px;font-weight:700;margin:12px 0;color:var(--navy)}
+.stock{font-size:12px;margin-bottom:12px}.in{color:var(--green)}.low{color:#b45309}
+.product-actions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:auto}
+.add,.view3d{padding:11px 8px;border:0;font-weight:700;cursor:pointer}
+.add{background:var(--orange);color:#fff}.view3d{background:#eef1f3;color:var(--navy)}
+.project-strip{background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.project{background:#fff;padding:25px;border:1px solid var(--line)}
+.project strong{font-family:Oswald;font-size:22px}.project p{color:var(--muted);line-height:1.5}
+.quote-banner{background:var(--orange);color:#fff}
+.quote-inner{max-width:var(--max);margin:auto;padding:36px 20px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.quote-inner h2{margin:0}.quote-inner p{margin:5px 0 0}
+.footer{background:var(--navy);color:#fff}
+.footer-grid{max-width:var(--max);margin:auto;padding:40px 20px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:35px}
+.footer h3{font-family:Oswald;text-transform:uppercase;margin-top:0}.footer p,.footer li{color:#c9d0d6;line-height:1.7;font-size:14px}.footer ul{padding:0;list-style:none}.footer li{margin:6px 0}
+.footer-bottom{border-top:1px solid #3a4650;text-align:center;padding:15px;color:#b8c0c8;font-size:12px}
+.whatsapp-float{position:fixed;right:20px;bottom:20px;background:#25d366;color:#fff;border-radius:50px;padding:14px 18px;font-weight:700;z-index:60;box-shadow:0 8px 25px #0003}
+.modal{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;z-index:100;padding:18px}
+.modal.open{display:flex}.modal-box{width:min(1050px,96vw);height:min(760px,92vh);background:#fff;display:flex;flex-direction:column;border-radius:6px;overflow:hidden}
+.modal-head{padding:14px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.modal-head h3{font-family:Oswald;font-size:24px;margin:0}.close{border:0;background:#eee;border-radius:50%;width:40px;height:40px;cursor:pointer;font-size:24px}
+.stage{flex:1;background:#eef1f3;min-height:350px}.stage canvas{display:block;width:100%;height:100%}
+.modal-help{padding:10px 15px;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+.quote-modal{max-width:560px;height:auto;max-height:90vh;overflow:auto;padding-bottom:18px}
+.quote-modal form{padding:20px}.field{margin-bottom:14px}.field label{display:block;font-weight:700;font-size:13px;margin-bottom:6px}.field input{width:100%;padding:12px;border:1px solid #ccd2d7}
+.quote-items{background:#f7f8f9;padding:12px;margin-bottom:15px;max-height:260px;overflow:auto}
+.quote-line{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid #ddd;padding:8px 0;font-size:13px}
+.quote-total{font-size:20px;font-weight:700;text-align:right;margin:14px 0}
+.whatsapp-send{width:100%;padding:14px;border:0;background:#25d366;color:#fff;font-weight:700;cursor:pointer}
+.empty{grid-column:1/-1;padding:45px;text-align:center;border:1px dashed #ccc;color:var(--muted)}
+@media(max-width:1000px){.category-grid{grid-template-columns:repeat(3,1fr)}.head{grid-template-columns:180px 1fr}.head-actions{display:none}.hero-inner{grid-template-columns:1fr}.hero-art{display:none}.shop-layout{grid-template-columns:1fr}.filters{position:static}.products{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:650px){.head{grid-template-columns:1fr;padding:12px 15px}.logo{display:flex;gap:8px;align-items:baseline}.logo strong{font-size:30px}.logo span{font-size:12px}.nav-inner{padding:0 8px}.hero-inner{padding:40px 18px}.section{padding:35px 15px}.category-grid{grid-template-columns:repeat(2,1fr)}.products{grid-template-columns:1fr}.project-grid{grid-template-columns:1fr}.quote-inner{display:block}.quote-inner .primary{margin-top:15px}.footer-grid{grid-template-columns:1fr}.whatsapp-float{right:12px;bottom:12px}.product-image{height:230px}}
+
+.paint-studio{background:#fbfaf7;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.paint-hero{background:linear-gradient(110deg,#f3eee7,#fff 58%,#f7d9b0);padding:38px 28px;border:1px solid #eadfd2;display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center}
+.paint-hero h2{font-size:48px;margin:6px 0 12px}.paint-hero p{color:#59636c;line-height:1.6;max-width:680px}.paint-swatches{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.swatch{height:58px;border:2px solid #fff;box-shadow:0 2px 8px #0002;cursor:pointer;position:relative}.swatch span{position:absolute;bottom:3px;left:4px;font-size:9px;background:#0008;color:#fff;padding:2px 4px}.paint-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:20px 0}.paint-step{background:#fff;border:1px solid var(--line);padding:18px;cursor:pointer}.paint-step b{font-family:Oswald;font-size:19px;text-transform:uppercase}.paint-step p{font-size:13px;color:var(--muted);line-height:1.45}.paint-tool{background:#fff;border:1px solid var(--line);padding:22px;margin-top:18px}.paint-tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.paint-panel{border:1px solid var(--line);padding:18px}.paint-panel h3{font-family:Oswald;text-transform:uppercase;margin-top:0}.choice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.choice{border:1px solid #d9dde1;background:#fff;padding:12px;text-align:left;cursor:pointer}.choice.active{border:2px solid var(--orange);background:#fff8ef}.color-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:9px}.color-chip{height:62px;border:2px solid #fff;box-shadow:0 2px 8px #0002;cursor:pointer;position:relative}.color-chip.active{outline:3px solid var(--orange)}.color-chip small{position:absolute;bottom:3px;left:3px;background:#0008;color:#fff;padding:2px 4px;font-size:9px}.room-preview{height:330px;position:relative;overflow:hidden;background:linear-gradient(#d9e1e7 0 65%,#b99a78 65%)}.room-wall{position:absolute;inset:0 0 35% 0;background:#f3eee6;transition:.25s}.room-floor{position:absolute;inset:65% 0 0;background:repeating-linear-gradient(90deg,#9b795d 0 55px,#a98769 55px 110px)}.room-ceiling{position:absolute;inset:0 0 auto;height:34px;background:#fff}.room-window{position:absolute;width:120px;height:100px;left:16%;top:23%;background:#b9d8eb;border:10px solid #fff;box-shadow:inset 0 0 0 3px #6e7b83}.room-window:before{content:"";position:absolute;left:50%;top:0;bottom:0;border-left:3px solid #fff}.room-door{position:absolute;width:85px;height:190px;right:14%;bottom:35%;background:#9a6b42;border:7px solid #6e4b30}.room-sofa{position:absolute;left:30%;bottom:35%;width:180px;height:55px;background:#8d969b;border-radius:8px 8px 4px 4px}.room-sofa:before{content:"";position:absolute;left:10px;right:10px;top:-45px;height:48px;background:#9ca6ab;border-radius:12px 12px 3px 3px}.room-label{position:absolute;top:12px;left:12px;background:#17202acc;color:#fff;padding:7px 10px;font-size:11px;font-weight:700}.calc-result{background:var(--navy);color:#fff;padding:18px;margin-top:12px}.calc-result strong{font-family:Oswald;font-size:28px}.mini-note{font-size:12px;color:var(--muted);line-height:1.5}.paint-product-result{display:flex;justify-content:space-between;align-items:center;gap:10px;border-top:1px solid var(--line);padding-top:12px;margin-top:12px}.paint-product-result button{border:0;background:var(--orange);color:#fff;padding:10px 14px;font-weight:700;cursor:pointer}
+@media(max-width:800px){.paint-hero{grid-template-columns:1fr}.paint-steps{grid-template-columns:1fr 1fr}.paint-tool-grid{grid-template-columns:1fr}.choice-grid{grid-template-columns:1fr 1fr}.color-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:500px){.paint-steps{grid-template-columns:1fr}.paint-hero h2{font-size:38px}.color-grid{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="inner">
+    <span>🇧🇼 Apex Hardware & Building Materials — Botswana</span>
+    <span>Order / enquiries: <a href="https://wa.me/2672412183" target="_blank">WhatsApp +267 241 2183</a></span>
+  </div>
+</div>
+
+<header>
+  <div class="head">
+    <a class="logo" href="#"><strong>APEX</strong><span>HARDWARE</span></a>
+    <div class="search">
+      <input id="searchInput" type="search" placeholder="What are you looking for? e.g. cement, IBR, PVC pipe..." aria-label="Search products">
+      <button type="button" onclick="runSearch()">SEARCH</button>
+    </div>
+    <div class="head-actions">
+      <button class="icon-btn" type="button" onclick="scrollToShop()">🛒 <span id="quoteCount">0</span></button>
+      <button class="quote-btn" type="button" onclick="openQuote()">GET A QUOTE</button>
+    </div>
+  </div>
+  <nav>
+    <div class="nav-inner">
+      <a href="#home">HOME</a>
+      <button onclick="scrollToCategories()">SHOP BY CATEGORY</button>
+      <button onclick="filterCategory('Cement & Building Materials')">BUILDING</button>
+      <button onclick="filterCategory('Roofing & Steel')">ROOFING & STEEL</button>
+      <button onclick="filterCategory('Plumbing')">PLUMBING</button>
+      <button onclick="filterCategory('Paint')">PAINT</button>
+      <button onclick="filterCategory('Doors')">DOORS</button>
+      <a href="https://www.facebook.com/apexhardware.bw" target="_blank">FACEBOOK</a>
+    </div>
+  </nav>
+</header>
+
+<main id="home">
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="kicker">BUILD • REPAIR • RENOVATE</div>
+      <h1>Everything you need to <span>build it right.</span></h1>
+      <p>Shop Apex building materials, hardware and construction essentials. Find products, build your quotation and send it directly to Apex on WhatsApp.</p>
+      <div class="hero-actions">
+        <button class="primary" onclick="scrollToShop()">SHOP PRODUCTS</button>
+        <button class="secondary" onclick="openQuote()">REQUEST A QUOTE</button>
+      </div>
+    </div>
+    <div class="hero-art"><div class="hero-box">APEX<br>BUILDING<br>MATERIALS</div></div>
+  </div>
+</section>
+
+<section class="section" id="categories">
+  <div class="section-head">
+    <div><div class="kicker">SHOP YOUR WAY</div><h2>Shop by category</h2></div>
+    <p>Trade-quality stock for builders, contractors and DIY projects.</p>
+  </div>
+  <div class="category-grid">
+    <div class="cat" onclick="filterCategory('Cement & Building Materials')"><div class="cat-icon">🧱</div><strong>Building</strong><small>Cement & bricks</small></div>
+    <div class="cat" onclick="filterCategory('Roofing & Steel')"><div class="cat-icon">🏠</div><strong>Roofing & Steel</strong><small>IBR & reinforcement</small></div>
+    <div class="cat" onclick="filterCategory('Plumbing')"><div class="cat-icon">🚰</div><strong>Plumbing</strong><small>PVC & CPVC</small></div>
+    <div class="cat" onclick="filterCategory('Paint')"><div class="cat-icon">🎨</div><strong>Paint</strong><small>Dulux finishes</small></div>
+    <div class="cat" onclick="filterCategory('Doors')"><div class="cat-icon">🚪</div><strong>Doors</strong><small>Pine doors & frames</small></div>
+    <div class="cat" onclick="filterCategory('Hardware')"><div class="cat-icon">🔧</div><strong>Hardware</strong><small>Tools & accessories</small></div>
+  </div>
+</section>
+
+<section class="paint-studio" id="paintStudio">
+  <div class="section">
+    <div class="paint-hero">
+      <div>
+        <div class="kicker">APEX PAINT & COLOUR STUDIO</div>
+        <h2>Find a colour. Visualize it. Paint it.</h2>
+        <p>Choose your room and surface, explore colours, preview your choice and estimate how much paint you need before adding it to your Apex quotation.</p>
+        <button class="primary" onclick="document.getElementById('paintTool').scrollIntoView({behavior:'smooth'})">START PAINT JOURNEY</button>
+      </div>
+      <div class="paint-swatches">
+        <div class="swatch" style="background:#f4f1e8" onclick="selectPaintColor('Capitol White','#f4f1e8')"><span>White</span></div>
+        <div class="swatch" style="background:#d9c7a5" onclick="selectPaintColor('Sandstone','#d9c7a5')"><span>Sand</span></div>
+        <div class="swatch" style="background:#9ba4a0" onclick="selectPaintColor('Stone Grey','#9ba4a0')"><span>Grey</span></div>
+        <div class="swatch" style="background:#668b78" onclick="selectPaintColor('Sage Green','#668b78')"><span>Sage</span></div>
+        <div class="swatch" style="background:#4f7189" onclick="selectPaintColor('Coastal Blue','#4f7189')"><span>Blue</span></div>
+        <div class="swatch" style="background:#b96d51" onclick="selectPaintColor('Terracotta','#b96d51')"><span>Terracotta</span></div>
+        <div class="swatch" style="background:#d8a35d" onclick="selectPaintColor('Warm Gold','#d8a35d')"><span>Gold</span></div>
+        <div class="swatch" style="background:#7b5b4a" onclick="selectPaintColor('Mocha','#7b5b4a')"><span>Mocha</span></div>
+        <div class="swatch" style="background:#34383b" onclick="selectPaintColor('Charcoal','#34383b')"><span>Charcoal</span></div>
+        <div class="swatch" style="background:#e6b6bf" onclick="selectPaintColor('Blush','#e6b6bf')"><span>Blush</span></div>
+      </div>
+    </div>
+    <div class="paint-steps">
+      <div class="paint-step" onclick="paintStep('room')"><b>01 · Choose room</b><p>Living room, bedroom, kitchen, bathroom or exterior.</p></div>
+      <div class="paint-step" onclick="paintStep('surface')"><b>02 · Choose surface</b><p>Walls, ceilings, doors, wood, metal or masonry.</p></div>
+      <div class="paint-step" onclick="paintStep('colour')"><b>03 · Explore colour</b><p>Pick a colour and instantly preview it.</p></div>
+      <div cla
